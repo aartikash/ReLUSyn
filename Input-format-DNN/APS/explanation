@@ -1,0 +1,20 @@
+#We are using the format developed by Souradeep Dutta
+
+The input format for a feedforward neural network has been described in the 
+sherlock-network format. 
+
+This is the .nt format
+
+The basic essence of the format is that the neural network should be returned
+in the format:
+
+
+No of inputs
+No of outputs
+No of hidden layers
+No of neurons in layer 1
+No of neurons in layer 2 and so on
+
+Every .nt file describes the neural network that contains it's weights, 
+and bias. 
+
