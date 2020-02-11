@@ -1,0 +1,17 @@
+#sherlock-pdf
+This contains the general structure for the  neural network format
+
+#AP_precdict
+This contains our APS neural network
+- It has two layers. 
+- It has 74 inputs
+- Therefore the file has 
+	- 74 -> No of inputs
+        - 1  -> no of outputs
+        - 2  -> 2 hidden layers
+        - 8  -> Neurons in the first hidden layer
+        - 8  -> neurons in the second hidden layer
+
+
+
+
