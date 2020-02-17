@@ -1,0 +1,26 @@
+9
+Academic license - for non-commercial use only
+Optimize a model with 6 rows, 11 columns and 16 nonzeros
+Model has 4 general constraints
+Variable types: 11 continuous, 0 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [5e-01, 9e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [9e-01, 1e+00]
+  RHS range        [3e-01, 2e+00]
+Presolve removed 6 rows and 11 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 0.0394118 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.941176470588e-02, best bound 3.941176470588e-02, gap 0.0000%
+Input 0: 0.0
+Input 1: 0.35
+Output 0: 0.9
+Delta 0: 0.0
+Delta 1: -0.0394117647059
