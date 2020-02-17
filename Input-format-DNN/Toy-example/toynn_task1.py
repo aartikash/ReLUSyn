@@ -104,8 +104,8 @@ for i in range(num_outputs):
 
 
 
-
-
+for i in range(num_inputs):
+    nn.addConstr(deltas[i] == 0)
 nn.write('task1.lp')
 nn.optimize()
 

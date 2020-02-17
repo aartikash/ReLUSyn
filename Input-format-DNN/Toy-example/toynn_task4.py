@@ -102,7 +102,8 @@ for i in range(num_outputs):
 
 #TODO: Add code here that allows us to set values for inputs
 
-
+for i in range(num_inputs):
+    nn.addConstr(deltas[i] == 0)
 
 
 

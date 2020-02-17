@@ -7,6 +7,8 @@ Subject To
  R2: 0.45 C8 - 3.5 C9 + C10 = 0.9
  R3: C0 = 0
  R4: C1 = 0.38
+ R5: C2 = 0
+ R6: C3 = 0
 Bounds
 General Constraints
  GC0: C8 = MAX ( C6 , 0 )

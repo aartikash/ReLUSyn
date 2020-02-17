@@ -108,6 +108,9 @@ for i in range(num_outputs):
 nn.addConstr(inputs[0] == first_input)
 nn.addConstr(inputs[1] == second_input)
 
+for i in range(num_inputs):
+    nn.addConstr(deltas[i] == 0)
+
 nn.write('task3.lp')
 nn.optimize()
 

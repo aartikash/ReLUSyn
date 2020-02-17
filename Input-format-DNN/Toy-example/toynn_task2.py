@@ -104,7 +104,8 @@ for i in range(num_outputs):
 
 
 
-
+for i in range(num_inputs):
+    nn.addConstr(deltas[i] == 0)
 
 
 nn.setParam('PoolSearchMode', 2)
