@@ -106,11 +106,12 @@ for i in range(num_outputs):
 
 
 
-
+nn.write('task1.lp')
 nn.optimize()
 
-for i in range(num_inputs):
-    print('Input ' + str(i) + ': ' + str(inputs[i].X))
+if nn.status == GRB.Status.OPTIMAL:
+    for i in range(num_inputs):
+        print('Input ' + str(i) + ': ' + str(inputs[i].X))
 
-for i in range(num_outputs):
-    print('Output ' + str(i) + ': ' + str(outputs[i].X))
+    for i in range(num_outputs):
+        print('Output ' + str(i) + ': ' + str(outputs[i].X))

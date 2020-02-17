@@ -108,6 +108,7 @@ for i in range(num_outputs):
 nn.addConstr(inputs[0] == first_input)
 nn.addConstr(inputs[1] == second_input)
 
+nn.write('task3.lp')
 nn.optimize()
 
 if nn.status == GRB.Status.OPTIMAL:

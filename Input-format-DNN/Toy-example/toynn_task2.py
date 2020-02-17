@@ -109,11 +109,23 @@ for i in range(num_outputs):
 
 nn.setParam('PoolSearchMode', 2)
 nn.setParam('PoolSolutions', 2)
+nn.write('task2.lp')
 nn.optimize()
-print('SolCount: ' + str(nn.Params.SolCount))
 
-for i in range(num_inputs):
-    print('Input ' + str(i) + ': ' + str(inputs[i].X))
+if nn.status == GRB.Status.OPTIMAL:
+    print('SolCount: ' + str(nn.Params.SolCount))
+    if nn.Params.SolCount != None:
+        for i in range(nn.Params.SolCount):
+            nn.Params.SolutionNumber = i
+            for j in range(num_inputs):
+                print('Input ' + str(j) + ': ' + str(inputs[j].Xn))
 
-for i in range(num_outputs):
-    print('Output ' + str(i) + ': ' + str(outputs[i].X))
+            for j in range(num_outputs):
+                print('Output ' + str(j) + ': ' + str(outputs[j].Xn))
+    else:
+        for i in range(num_inputs):
+            print('Input ' + str(i) + ': ' + str(inputs[i].X))
+
+        for i in range(num_outputs):
+            print('Output ' + str(i) + ': ' + str(outputs[i].X))
+
