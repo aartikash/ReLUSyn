@@ -1,0 +1,91 @@
+[?25l[J[J[J[?12l[?25h[?1049h[?1h=[1;38r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[38;1H"toynn_task7.py" 126 lines, 3446 characters[1;1Hfrom gurobipy import *
+
+f = open("toynn.nt", "r")
+
+count = 0
+
+num_inputs = int(f.readline())
+num_outputs = int(f.readline())
+num_layers = int(f.readline())
+num_neurons = []
+
+for i in range(num_layers):
+    num_neurons.append(int(f.readline()))
+
+weights = []
+for i in range(num_layers):
+    weights.append([])
+    weights[i] = [[] for j in range(num_neurons[i])]
+weights.append([])
+weights[-1] = [[] for i in range(num_outputs)]
+
+biases = []
+for i in range(num_layers):
+    biases.append([])
+biases.append([])
+
+for i in range(num_neurons[0]):
+    for j in range(num_inputs):[29;9Hweights[0][i].append(float(f.readline()))[30;9Hcount += 1
+    biases[0].append(float(f.readline()))
+    count += 1
+
+for i in range(1, num_layers):
+    for j in range(num_neurons[i]):[36;9Hfor k in range(num_neurons[i-1]):[37;13Hweights[i][j].append(float(f.readline()))[1;1H[?12l[?25h
+
+[?25l[38;1HType  :quit<Enter>  to exit Vim[38;32H[K[3;1H[?12l[?25h
+
+
+[?25l[?12l[?25h[?25l[1;37r[1;1H[18M[1;38r[20;13Hcount += 1[21;9Hbiases[i].append(float(f.readline()))[22;9Hcount += 1
+
+for i in range(num_outputs):
+    for j in range(num_neurons[-1]):[26;9Hweights[-1][i].append(float(f.readline()))[27;9Hcount += 1
+    biases[-1].append(float(f.readline()))
+    count += 1
+
+# This checks that the correct number of lines were parsed
+print(count)
+
+nn = Model()
+
+inputs = nn.addVars(num_inputs)
+deltas = nn.addVars(num_inputs)[38;1H[K[6;5H[?12l[?25h[?25l[38;1HType  :quit<Enter>  to exit Vim[6;5H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h
+
+
+
+    [?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[38;1H[?1l>[?1049lVim: Error reading input, exiting...
+Vim: Finished.
+[38;1H9
+Academic license - for non-commercial use only
+Optimize a model with 5 rows, 11 columns and 15 nonzeros
+Model has 4 general constraints
+Variable types: 11 continuous, 0 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [5e-01, 9e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [9e-01, 1e+00]
+  RHS range        [3e-01, 2e+00]
+Presolve added 2 rows and 0 columns
+Presolve removed 0 rows and 4 columns
+Presolve time: 0.00s
+Presolved: 7 rows, 7 columns, 18 nonzeros
+Variable types: 7 continuous, 0 integer (0 binary)
+
+Root relaxation: objective 8.164877e-04, 5 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       0.0008165    0.00082  0.00%     -    0s
+
+Explored 0 nodes (5 simplex iterations) in 0.00 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 1: 0.000816488 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 8.164876816175e-04, best bound 8.164876816175e-04, gap 0.0000%
+Input 0: 0.0
+Input 1: 0.31
+Output 0: 0.9321
+Delta 0: 0.000816487681617
+Delta 1: 0.0
