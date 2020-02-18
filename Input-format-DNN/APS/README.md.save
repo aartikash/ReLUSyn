@@ -1,0 +1,5 @@
+The folder contains the following sub-directories
+
+1. Network_files
+	a. Three different neural network files for the APS system: AP_high,
+           AP_low, AP_predict
