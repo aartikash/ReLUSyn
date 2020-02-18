@@ -1,0 +1,32 @@
+Experiment-1
+
+The experiments in this case have to be slightly different from the previous one. 
+
+In the first experiment we would first want to find some feasible inputs. 
+The work in this particular experiment has more pre-processing work before
+moving to the next phase. 
+
+The pre-processing work requires the following tasks:
+
+Task 1A) Find 1 feasible input-output values required to find the time. 
+
+The table should look like
+
+	Input -1 | Input -2 | ...|Input-n | Output -1 | Output-2 | Output-3 | Time -taken to compute
+
+Task 1B) Find multiple input-output pairs (perhaps 5-10?) - I think this depends on the time 
+required to compute the Task 1A. If it is not taking hours and hours to compute then I'd prefer
+if we can get 50-100 pairs for our data set. 
+
+
+  Construct a similar table as above with same coloumns and infact keep adding to the same table 
+
+
+
+Side note: The reason I feel this is an interesting thing too because we are basically constructing a 
+data-set from the model. If the numbers are good, this can be a side paper that we can upload where
+we say that we produce data-sets based on the model. I'll explain why this is the state-of-the art if you
+are interested. 
+
+Task 1C) Now that we have our data set ready, make a input-1.csv file in the format that the Gurobi can take
+in as inputs and we can start finding the FDI attacks.   
