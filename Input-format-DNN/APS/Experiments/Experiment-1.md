@@ -8,7 +8,7 @@ entire next Kh times is predicted.
 5) Our goal is to change the output by causing some delta change in the input.
 6) The output range has to be between 70-120. This is the general constraint that
 will remain general through out
-7) The delta values 
+7) The delta values should be absolute. (Currently I am not giving any bounds because I want to know the delta values) 
   
 Task 1A) In experiment 1 we deviate one input(the first input) from the original 74 inputs such that the
 output changes. 
