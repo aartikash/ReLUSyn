@@ -29,4 +29,15 @@ we say that we produce data-sets based on the model. I'll explain why this is th
 are interested. 
 
 Task 1C) Now that we have our data set ready, make a input-1.csv file in the format that the Gurobi can take
-in as inputs and we can start finding the FDI attacks.   
+in as inputs and we can start finding the FDI attacks.
+
+In the end there should be two files: the first file with input, output and the time. 
+In the second file there should be: only the inputs 
+
+
+Things I expect that we will find out after this experiment:
+- The bounds on the outputs 
+- The input ranges
+- The input-output mappings 
+- Finally, the time required in order to do so. 
+   
