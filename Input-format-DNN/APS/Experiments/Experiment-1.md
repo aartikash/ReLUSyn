@@ -29,3 +29,9 @@ The table should contain the following 4 coloumns
 
 But the goal is only one input at a time. 
 
+
+What is expected here?
+Hypothesis: If every input is able to produce the final output to change then, we show that
+FDI attacks are quite simple. 
+And that is why they suck. 
+
