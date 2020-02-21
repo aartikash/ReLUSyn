@@ -1,4 +1,8 @@
+#This code parses the .nt files for further progress
+
 from gurobipy import *
+
+#read from the nt files
 
 f = open("AP_predict.nt", "r")
 
