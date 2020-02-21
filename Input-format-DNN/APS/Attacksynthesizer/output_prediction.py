@@ -1,10 +1,14 @@
 import sys
 from gurobipy import *
 
+#Takes in the network file
 network_file = sys.argv[1]
+#Takes in the input file to the network
 input_file = sys.argv[2]
+#This points to the index of the files we want to change
 input_to_change = sys.argv[3]
 
+#Opens the network file
 f = open(network_file, "r")
 
 count = 0
