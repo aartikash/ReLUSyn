@@ -47,12 +47,14 @@ for layernum in range(numLayers):
     weights.append([])
     biases.append([])
     weights[layernum] = np.zeros((currentLayerSize, previousLayerSize))
+    #weights[layernum] = [[0 for i in range(previousLayerSize)] for j in range(currentLayerSize)]
     for i in range(currentLayerSize):
         in_line=f.readline()
         aux = [float(x) for x in in_line.strip().split(",")[:-1]]
         for j in range(previousLayerSize):
-            weights[layernum][i,j] = aux[j]
+            weights[layernum][i][j] = aux[j]
     biases[layernum] = np.zeros(currentLayerSize)
+    #biases[layernum] = [0 for i in range(currentLayerSize)]
     for i in range(currentLayerSize):
         in_line = f.readline()
         x = float(in_line.strip().split(",")[0])
@@ -173,8 +175,8 @@ nn = Model()
 #inputs = nn.addVars(num_inputs, name="inputs")
 #deltas = nn.addVars(num_inputs, lb=-GRB.INFINITY, name="deltas")
 
-inputsM = nn.addMVar(num_inputs, name="inputs", lb=-GRB.INFINITY, ub=GRB.INFINITY)
-deltasM = nn.addMVar(num_inputs, name="deltas", lb=0, ub=0)
+inputsM = nn.addVars(inputSize, name="inputs", lb=-GRB.INFINITY, ub=GRB.INFINITY)
+deltasM = nn.addVars(inputSize, name="deltas", lb=0, ub=0)
 
 #for i in range(num_inputs):
     #inputs[i].lb = inputs_min[i]
@@ -186,19 +188,58 @@ deltasM = nn.addMVar(num_inputs, name="deltas", lb=0, ub=0)
 
 #layerOuts = {}
 #layerReluOuts = {}
+input_vals = [500.0,0.0,0.0,100.0,100.0]
+for i in range(inputSize):
+    nn.addConstr(inputsM[i] == input_vals[i])
+
+layerOuts = {}
+layerOuts[1] = nn.addVars(layerSizes[1], name="layerOuts[1]", lb=-GRB.INFINITY, ub=GRB.INFINITY)
 
 layerReluOuts = {}
+layerReluOuts[1] = nn.addVars(layerSizes[1], name="layerReluOuts[1]", lb=0, ub=GRB.INFINITY)
 
-layerReluOuts[1] = nn.addMVar(layerSizes[1], name="layerReluOuts[1]", lb=0, ub=GRB.INFINITY)
-nn.addConstr(layerReluOuts[1] == np.maximum(np.dot(weights[0], inputsM+deltasM)+biases[0],0))
+nn.update()
 
-for layernum in range(1, numLayers-1):
-    layerReluOuts[layernum+1] = nn.addMVar(layerSizes[layernum+1], name="layerReluOuts[" + str(layernum+1) + "]", lb=0, ub=GRB.INFINITY)
-    nn.addConstr(layerReluOuts[layernum+1] == np.maximum(np.dot(weights[layernum-1], layerReluOuts[layernum])+deltas[layernum-1], 0))
+temp = []
+for i in range(layerSizes[1]):
+    expr = LinExpr()
+    for j in range(layerSizes[0]):
+        expr.add(inputsM[j], weights[0][i][j])
+        expr.add(deltasM[j], weights[0][i][j])
+    temp.append(expr)
 
-outputs = nn.addMVar(layerSizes[-1], name="outputs", lb=0, ub=GRB.INFINITY)
-nn.addConstr(outputs == np.dot(weights[-1], layerReluOuts[numLayers-1])+biases[-1])
+nn.addConstrs(layerOuts[1][i] == temp[i] + biases[0][i] for i in range(layerSizes[1]))
+nn.addConstrs(layerReluOuts[1][i] == max_(layerOuts[1][i], 0) for i in range(layerSizes[1]))
 
+for layernum in range(2, numLayers):
+    layerOuts[layernum] = nn.addVars(layerSizes[layernum], name="layerOuts[" + str(layernum) + "]", lb=-GRB.INFINITY, ub=GRB.INFINITY)
+    layerReluOuts[layernum] = nn.addVars(layerSizes[layernum], name="layerReluOuts[" + str(layernum) + "]", lb=0, ub=GRB.INFINITY)
+    nn.update()
+    temp = []
+    for i in range(layerSizes[layernum]):
+        expr = LinExpr()
+        for j in range(layerSizes[layernum-1]):
+            expr.add(layerReluOuts[layernum-1][j], weights[layernum-1][i][j])
+        temp.append(expr)
+    nn.addConstrs(layerOuts[layernum][i] == temp[i] + biases[layernum-1][i] for i in range(layerSizes[layernum]))
+    nn.addConstrs(layerReluOuts[layernum][i] == max_(layerOuts[layernum][i], 0) for i in range(layerSizes[layernum]))
+    #layerReluOuts[layernum+1] = nn.addVars(layerSizes[layernum+1], name="layerReluOuts[" + str(layernum+1) + "]", lb=0, ub=GRB.INFINITY)
+    #nn.addConstr(layerReluOuts[layernum+1] == np.maximum(np.dot(weights[layernum-1], layerReluOuts[layernum])+deltas[layernum-1], 0))
+
+#outputs = nn.addMVar(layerSizes[-1], name="outputs", lb=0, ub=GRB.INFINITY)
+#nn.addConstr(outputs == np.dot(weights[-1], layerReluOuts[numLayers-1])+biases[-1])
+
+outputs = nn.addVars(layerSizes[-1], name="outputs", lb=-GRB.INFINITY, ub=GRB.INFINITY)
+nn.update()
+
+temp = []
+for i in range(layerSizes[-1]):
+    expr = LinExpr()
+    for j in range(layerSizes[-2]):
+        expr.add(layerReluOuts[numLayers-1][j], weights[-1][i][j])
+    temp.append(expr)
+
+nn.addConstrs(outputs[i] == temp[i] + biases[-1][i] for i in range(layerSizes[-1]))
 #expr = LinExpr()
 
 #layerOuts = nn.addVars(num_layers, num_neurons[0], name="layerOuts")
@@ -279,21 +320,7 @@ nn.optimize()
 
 if nn.status == GRB.Status.OPTIMAL:
     print('optimal solution found!')
-    """for i in range(num_inputs):
-        #print('Input ' + str(i) + ' is ' + str(inputs[i].X))
-        #f.write(str(inputs[i].X) + '\n')
-    for i in range(num_inputs):
-        #print('Delta ' + str(i) + ' is ' + str(deltas[i].X))
-        #f.write(str(deltas[i].X) + '\n')
-    for i in range(num_outputs):
-        #print('Output ' + str(i) + ' is ' + str(outputs[i].X))
-        #f.write(str(outputs[i].X) + '\n')
-    for i in range(sum(num_neurons) + num_outputs):
-        #print('Slack ' + str(i) + ' is ' + str(slacks[i].X))
-        #f.write(str(slacks[i].X) + '\n')"""
-
-#f.close()
-
-#else:
-#    nn.computeIIS()
-#    nn.write('model.ilp')
+    for i in range(inputSize):
+        print('Input ' + str(i) + ' is ' + str(inputsM[i].X))
+    for i in range(outputSize):
+        print('Output ' + str(i) + ' is ' + str(outputs[i].X))
