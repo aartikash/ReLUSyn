@@ -13,10 +13,6 @@ in_line = f.readline()
 
 while in_line[0:2] == "//":
     in_line = f.readline()
-    #if in_line.startswith('//'):
-    #    in_line = f.readline()
-    #else:
-    #    break
 
 numLayers, inputSize, outputSize, _ = [int(x) for x in in_line.strip().split(",")[:-1]]
 
@@ -47,150 +43,41 @@ for layernum in range(numLayers):
     weights.append([])
     biases.append([])
     weights[layernum] = np.zeros((currentLayerSize, previousLayerSize))
-    #weights[layernum] = [[0 for i in range(previousLayerSize)] for j in range(currentLayerSize)]
     for i in range(currentLayerSize):
         in_line=f.readline()
         aux = [float(x) for x in in_line.strip().split(",")[:-1]]
         for j in range(previousLayerSize):
             weights[layernum][i][j] = aux[j]
     biases[layernum] = np.zeros(currentLayerSize)
-    #biases[layernum] = [0 for i in range(currentLayerSize)]
     for i in range(currentLayerSize):
         in_line = f.readline()
         x = float(in_line.strip().split(",")[0])
         biases[layernum][i] = x
 
-
-
-"""read_nums = in_line.split(',')
-read_nums = read_nums[0:-1]
-
-num_inputs = int(read_nums[1])
-num_outputs = int(read_nums[2])
-num_layers = int(read_nums[0]) - 1
-
-in_line = f.readline()
-read_nums = in_line.split(',')
-read_nums = read_nums[0:-1]
-
-num_neurons = []
-for i in range(1, len(read_nums)-1):
-    num_neurons.append(int(read_nums[i]))
-
-inputs_min = []
-inputs_max = []
-
-in_line = f.readline()
-
-in_line = f.readline()
-read_nums = in_line.split(',')
-read_nums = read_nums[0:-1]
-
-#print(num_inputs)
-#print(read_nums)
-for i in range(num_inputs):
-    inputs_min.append(float(read_nums[i]))
-
-in_line = f.readline()
-read_nums = in_line.split(',')
-read_nums = read_nums[0:-1]
-
-for i in range(num_inputs):
-    inputs_max.append(float(read_nums[i]))
-
-in_line = f.readline()
-in_line = f.readline()
-
-weights = []
-for i in range(num_layers):
-    weights.append([])
-    weights[i] = [[] for j in range(num_neurons[i])]
-weights.append([])
-weights[-1] = [[] for i in range(num_outputs)]
-
-biases = []
-for i in range(num_layers):
-    biases.append([])
-biases.append([])
-
-with open('temp.txt', 'w') as out:
-    for in_line in f:
-        read_nums = in_line.split(',')
-        read_nums = read_nums[0:-1]
-        for num in read_nums:
-            out.write(num + '\n')
-
-f.close()
-
-f = open('temp.txt', 'r')
-
-for i in range(num_inputs):
-    for j in range(num_neurons[0]):
-        weights[0][j].append(float(f.readline()))
-
-#for i in range(num_neurons[0]):
-#    for j in range(num_inputs):
-#        weights[0][i].append(float(f.readline()))
-
-for i in range(num_neurons[0]):
-    biases[0].append(float(f.readline()))
-
-
-for i in range(1, num_layers):
-    for j in range(num_neurons[i-1]):
-        for k in range(num_neurons[i]):
-           weights[i][k].append(float(f.readline()))
-    for j in range(num_neurons[i]):
-        biases[i].append(float(f.readline()))
-
-#for i in range(1, num_layers):
-#    for j in range(num_neurons[i]):
-#        for k in range(num_neurons[i-1]):
-#            weights[i][j].append(float(f.readline()))
-#    for j in range(num_neurons[i]):
-#        biases[i].append(float(f.readline()))
-
-for i in range(num_neurons[-1]):
-    for j in range(num_outputs):
-        weights[-1][j].append(float(f.readline()))
-
-for i in range(num_outputs):
-    biases[-1].append(float(f.readline()))
-
-
-#for i in range(num_outputs):
-#    for j in range(num_neurons[-1]):
-#        weights[-1][i].append(float(f.readline()))
-#        count += 1
-
-#for i in range(num_outputs):    
-#    biases[-1].append(float(f.readline()))
-
-# This checks that the correct number of lines were parsed
-# print(count)
-
-f.close()"""
 nn = Model()
 
-#inputs = nn.addVars(num_inputs, name="inputs")
-#deltas = nn.addVars(num_inputs, lb=-GRB.INFINITY, name="deltas")
+inputs = nn.addVars(inputSize, name="inputs", lb=-GRB.INFINITY, ub=GRB.INFINITY)
+deltas = nn.addVars(inputSize, name="deltas", lb=0, ub=0)
+deltas[1].lb = -3.141593
+deltas[1].ub = 3.141593
+absDeltas = nn.addVars(inputSize, name="absDeltas")
+inputsM = nn.addVars(inputSize, name="inputsM", lb=-GRB.INFINITY, ub=GRB.INFINITY)
 
-inputsM = nn.addVars(inputSize, name="inputs", lb=-GRB.INFINITY, ub=GRB.INFINITY)
-deltasM = nn.addVars(inputSize, name="deltas", lb=0, ub=0)
-
-#for i in range(num_inputs):
-    #inputs[i].lb = inputs_min[i]
-    #inputs[i].ub = inputs_max[i]
-    #nn.addConstr(deltas[i] == 0)
-
-#for i in range(1, num_inputs):
-#    nn.addConstr(inputs[i] == 0)
-
-#layerOuts = {}
-#layerReluOuts = {}
 input_vals = [500.0,0.0,0.0,100.0,100.0]
 for i in range(inputSize):
-    nn.addConstr(inputsM[i] == input_vals[i])
+    nn.addConstr(inputs[i] == input_vals[i] + deltas[i])
+    nn.addConstr(absDeltas[i] == abs_(deltas[i]))
+
+for i in range(inputSize):
+    #if input_vals[i] < inputMinimums[i]:
+    #    nn.addConstr(inputsM[i] == (inputMinimums[i]-inputMeans[i])/inputRanges[i])
+    #elif input_vals[i] > inputMaximums[i]:
+    #    nn.addConstr(inputsM[i] == (inputMaximums[i]-inputMeans[i])/inputRanges[i])
+    #else:
+    #    nn.addConstr(inputsM[i] == (input_vals[i]-inputMeans[i])/inputRanges[i])
+
+    #nn.addConstr(inputsM[i] == input_vals[i])
+    nn.addConstr(inputsM[i] == (inputs[i]-inputMeans[i])/inputRanges[i])
 
 layerOuts = {}
 layerOuts[1] = nn.addVars(layerSizes[1], name="layerOuts[1]", lb=-GRB.INFINITY, ub=GRB.INFINITY)
@@ -205,7 +92,7 @@ for i in range(layerSizes[1]):
     expr = LinExpr()
     for j in range(layerSizes[0]):
         expr.add(inputsM[j], weights[0][i][j])
-        expr.add(deltasM[j], weights[0][i][j])
+        #expr.add(deltasM[j], weights[0][i][j])
     temp.append(expr)
 
 nn.addConstrs(layerOuts[1][i] == temp[i] + biases[0][i] for i in range(layerSizes[1]))
@@ -223,11 +110,6 @@ for layernum in range(2, numLayers):
         temp.append(expr)
     nn.addConstrs(layerOuts[layernum][i] == temp[i] + biases[layernum-1][i] for i in range(layerSizes[layernum]))
     nn.addConstrs(layerReluOuts[layernum][i] == max_(layerOuts[layernum][i], 0) for i in range(layerSizes[layernum]))
-    #layerReluOuts[layernum+1] = nn.addVars(layerSizes[layernum+1], name="layerReluOuts[" + str(layernum+1) + "]", lb=0, ub=GRB.INFINITY)
-    #nn.addConstr(layerReluOuts[layernum+1] == np.maximum(np.dot(weights[layernum-1], layerReluOuts[layernum])+deltas[layernum-1], 0))
-
-#outputs = nn.addMVar(layerSizes[-1], name="outputs", lb=0, ub=GRB.INFINITY)
-#nn.addConstr(outputs == np.dot(weights[-1], layerReluOuts[numLayers-1])+biases[-1])
 
 outputs = nn.addVars(layerSizes[-1], name="outputs", lb=-GRB.INFINITY, ub=GRB.INFINITY)
 nn.update()
@@ -240,87 +122,21 @@ for i in range(layerSizes[-1]):
     temp.append(expr)
 
 nn.addConstrs(outputs[i] == temp[i] + biases[-1][i] for i in range(layerSizes[-1]))
-#expr = LinExpr()
 
-#layerOuts = nn.addVars(num_layers, num_neurons[0], name="layerOuts")
-#layerReluOuts = nn.addVars(num_layers, num_neurons[0], name="layerReluOuts")
-
-#for i in range(numLayers-1):
-#    layerReluOuts = 
-
-#for i in range(num_layers):
-#    layerOuts[i] = nn.addVars(num_neurons[i], name="layerOuts")
-#    layerReluOuts[i] = nn.addVars(num_neurons[i], name="layerReluOuts")
-
-#print(layerOuts)
-
-#outputs = nn.addVars(num_outputs, lb=-GRB.INFINITY, name="outputs")
-
-#absSlacks = nn.addVars(sum(num_neurons) + num_outputs)
-#slacks = nn.addVars(sum(num_neurons) + num_outputs, lb=-GRB.INFINITY)
-
-#f = open('output.txt', 'r')
-
-#for i in range(num_inputs):
-#    f.readline()
-#    f.readline()
-
-#for i in range(num_outputs):
-#    f.readline()
-
-#for i in range(sum(num_neurons) + num_outputs):
-#    nn.addConstr(slacks[i] == float(f.readline()))
-#    nn.addConstr(absSlacks[i] == abs_(slacks[i]))
-
-#for i in range(sum(num_neurons) + num_outputs):
-#    nn.addConstr(absSlacks[i] == abs_(slacks[i]))
-
-#sum_neurons = [sum(num_neurons[0:i]) for i in range(len(num_neurons)+1)]
-
-#"""for i in range(num_neurons[0]):
-#    expr = LinExpr()
-#    for j in range(num_inputs):
-#        expr.add(inputs[j], weights[0][i][j])
-#        expr.add(deltas[j], weights[0][i][j])
-#    expr.addConstant(biases[0][i])
-#    nn.addConstr(layerOuts[0,i] + slacks[sum_neurons[0] + i] == expr)
-#    nn.addConstr(layerReluOuts[0,i] == max_(0, layerOuts[0,i]))
-
-#for i in range(1, num_layers):
-#    for j in range(num_neurons[i]):
-#        expr = LinExpr()
-#        for k in range(num_neurons[i-1]):
-#            expr.add(layerReluOuts[i-1,k], weights[i][j][k])
-#        expr.addConstant(biases[i][j])
-#        nn.addConstr(layerOuts[i,j] + slacks[sum_neurons[i] + j] == expr)
-#        nn.addConstr(layerReluOuts[i,j] == max_(0, layerOuts[i,j]))
-#
-#for i in range(num_outputs):
-#    expr = LinExpr()
-#    for j in range(num_neurons[-1]):
-#        expr.add(layerReluOuts[num_layers-1,j], weights[num_layers][i][j])
-#    expr.addConstant(biases[num_layers][i])
-#    nn.addConstr(outputs[i] + slacks[sum_neurons[-1] + i] == expr)
-
-#TODO: Add code here that allows us to set values for inputs
-#nn.setObjective(quicksum(absSlacks))"""
+denormalizedOuts = nn.addVars(outputSize, lb=-GRB.INFINITY, ub=GRB.INFINITY)
+for i in range(outputSize):
+    nn.addConstr(denormalizedOuts[i] == outputs[i] * inputRanges[-1] + inputMeans[-1])
 
 nn.Params.OutputFlag = False
-#nn.update()
-#print(nn.getVars())
-#nn.write('model.lp')
-
-#nn.Params.DualReductions = 0
-
+nn.addConstr(denormalizedOuts[0] >= 270.6)
+nn.setObjective(quicksum(absDeltas))
 nn.optimize()
-
-#print(nn.status)
-
-#f = open('output.txt', 'w')
 
 if nn.status == GRB.Status.OPTIMAL:
     print('optimal solution found!')
     for i in range(inputSize):
-        print('Input ' + str(i) + ' is ' + str(inputsM[i].X))
+        print('Input ' + str(i) + ' is ' + str(inputs[i].X))
+        print('Delta ' + str(i) + ' is ' + str(deltas[i].X))
+        print('InputM ' + str(i) + ' is ' + str(inputsM[i].X))
     for i in range(outputSize):
-        print('Output ' + str(i) + ' is ' + str(outputs[i].X))
+        print('Output ' + str(i) + ' is ' + str(denormalizedOuts[i].X))
