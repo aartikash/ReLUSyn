@@ -1,0 +1,82 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		96618 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_2B.py
+[runlim] start:			Sun Mar 29 04:07:36 2020
+[runlim] main pid:		33544
+Choosing inputs [0, 1]
+Academic license - for non-commercial use only
+I0329 04:07:36.465488 33544 attacksynthesis_2.py:57] Academic license - for non-commercial use only
+Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+I0329 04:07:36.465672 33544 attacksynthesis_2.py:57] Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+[runlim] sample:		78.0 seconds, 83.1 MB
+[runlim] sample:		157.7 seconds, 90.0 MB
+[runlim] sample:		237.4 seconds, 95.3 MB
+[runlim] sample:		317.0 seconds, 102.6 MB
+[runlim] sample:		396.7 seconds, 105.9 MB
+[runlim] sample:		476.4 seconds, 108.0 MB
+[runlim] sample:		556.0 seconds, 106.9 MB
+[runlim] sample:		635.7 seconds, 108.5 MB
+[runlim] sample:		715.4 seconds, 110.0 MB
+[runlim] sample:		795.0 seconds, 110.7 MB
+[runlim] sample:		874.7 seconds, 111.0 MB
+[runlim] sample:		954.3 seconds, 111.3 MB
+[runlim] sample:		1034.0 seconds, 112.6 MB
+[runlim] sample:		1113.6 seconds, 113.2 MB
+[runlim] sample:		1193.3 seconds, 114.1 MB
+[runlim] sample:		1273.0 seconds, 114.4 MB
+[runlim] sample:		1352.6 seconds, 114.8 MB
+[runlim] sample:		1432.3 seconds, 115.4 MB
+[runlim] sample:		1512.0 seconds, 115.7 MB
+[runlim] sample:		1591.6 seconds, 116.3 MB
+[runlim] sample:		1671.3 seconds, 117.4 MB
+[runlim] sample:		1750.0 seconds, 86.6 MB
+[runlim] sample:		1829.7 seconds, 92.1 MB
+[runlim] sample:		1909.3 seconds, 94.5 MB
+[runlim] sample:		1989.0 seconds, 97.7 MB
+[runlim] sample:		2068.6 seconds, 103.3 MB
+[runlim] sample:		2148.3 seconds, 107.8 MB
+[runlim] sample:		2228.0 seconds, 110.4 MB
+[runlim] sample:		2307.6 seconds, 112.1 MB
+[runlim] sample:		2387.3 seconds, 113.5 MB
+[runlim] sample:		2466.9 seconds, 114.0 MB
+[runlim] sample:		2546.6 seconds, 114.2 MB
+[runlim] sample:		2626.3 seconds, 115.2 MB
+[runlim] sample:		2705.9 seconds, 115.5 MB
+[runlim] sample:		2785.6 seconds, 115.7 MB
+[runlim] sample:		2865.2 seconds, 116.2 MB
+[runlim] sample:		2944.9 seconds, 116.5 MB
+[runlim] sample:		3024.6 seconds, 116.9 MB
+[runlim] sample:		3104.2 seconds, 116.0 MB
+[runlim] sample:		3183.9 seconds, 116.6 MB
+[runlim] sample:		3262.9 seconds, 93.9 MB
+[runlim] sample:		3342.6 seconds, 99.8 MB
+[runlim] sample:		3422.2 seconds, 104.1 MB
+[runlim] sample:		3501.9 seconds, 109.4 MB
+[runlim] sample:		3581.6 seconds, 114.4 MB
+[runlim] sample:		3661.2 seconds, 118.3 MB
+[runlim] sample:		3740.9 seconds, 119.5 MB
+[runlim] sample:		3820.6 seconds, 120.9 MB
+[runlim] sample:		3900.2 seconds, 122.0 MB
+[runlim] sample:		3979.9 seconds, 122.5 MB
+[runlim] sample:		4059.5 seconds, 123.2 MB
+[runlim] sample:		4139.1 seconds, 123.5 MB
+[runlim] sample:		4218.8 seconds, 123.8 MB
+[runlim] sample:		4298.5 seconds, 123.9 MB
+[runlim] sample:		4378.1 seconds, 123.9 MB
+[runlim] sample:		4457.8 seconds, 122.3 MB
+[runlim] sample:		4537.5 seconds, 122.8 MB
+[runlim] sample:		4617.1 seconds, 121.6 MB
+[runlim] sample:		4696.8 seconds, 121.9 MB
+Choosing inputs [0, 2]
+Choosing inputs [1, 2]
+[runlim] end:			Sun Mar 29 04:17:35 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			599.64 seconds
+[runlim] time:			4770.89 seconds
+[runlim] space:			123.9 MB
+[runlim] samples:		5993

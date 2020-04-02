@@ -1,0 +1,48 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		96618 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_8B.py
+[runlim] start:			Sun Mar 29 05:42:41 2020
+[runlim] main pid:		34856
+Choosing input [0, 1]
+Academic license - for non-commercial use only
+I0329 05:42:41.619901 34856 attacksynthesis_8.py:57] Academic license - for non-commercial use only
+Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+I0329 05:42:41.620074 34856 attacksynthesis_8.py:57] Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+E0329 05:42:41.621279 34856 attacksynthesis_8.py:72] [0, 1]
+[runlim] sample:		78.1 seconds, 76.0 MB
+[runlim] sample:		157.7 seconds, 83.9 MB
+[runlim] sample:		237.4 seconds, 84.4 MB
+[runlim] sample:		317.1 seconds, 81.8 MB
+[runlim] sample:		396.7 seconds, 83.1 MB
+I0329 05:43:35.372047 34856 attacksynthesis_8.py:145] [199.49633978188223, 6836.584123446723, 2.2683915791388873]
+I0329 05:43:35.372460 34856 attacksynthesis_8.py:146] [0.143123288954914, 0.060193189666752016, 0.04581106909980827, 0.04581106909980835, 0.045811069099807505]
+E0329 05:43:35.379289 34856 attacksynthesis_8.py:72] [0, 2]
+[runlim] sample:		475.2 seconds, 77.6 MB
+[runlim] sample:		554.9 seconds, 82.5 MB
+[runlim] sample:		634.6 seconds, 84.8 MB
+I0329 05:44:01.957419 34856 attacksynthesis_8.py:145] [1644.6358721476213, 0.0, 0.0]
+I0329 05:44:01.957638 34856 attacksynthesis_8.py:146] [-1.0546882734155727, -0.932509300470078, -1.0546882734155727, -0.6983104415263666, -0.6146045872461611]
+E0329 05:44:01.964128 34856 attacksynthesis_8.py:72] [1, 2]
+[runlim] sample:		713.2 seconds, 83.4 MB
+[runlim] sample:		792.9 seconds, 87.5 MB
+[runlim] sample:		872.6 seconds, 95.8 MB
+[runlim] sample:		952.2 seconds, 98.5 MB
+[runlim] sample:		1031.9 seconds, 103.2 MB
+[runlim] sample:		1111.6 seconds, 104.3 MB
+[runlim] sample:		1191.2 seconds, 98.4 MB
+[runlim] sample:		1270.9 seconds, 99.0 MB
+I0329 05:45:22.494141 34856 attacksynthesis_8.py:145] [3919.704054253667, 17034.789483577362, 2.1613302994446473]
+I0329 05:45:22.494587 34856 attacksynthesis_8.py:146] [0.17244011361525474, 0.018700623932518375, -0.04590246684945912, -0.04590246684945921, 0.019489264496902376]
+Choosing input [0, 2]
+Choosing input [1, 2]
+[runlim] end:			Sun Mar 29 05:45:22 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			161.52 seconds
+[runlim] time:			1279.46 seconds
+[runlim] space:			104.4 MB
+[runlim] samples:		1611

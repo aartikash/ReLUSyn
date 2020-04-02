@@ -1,0 +1,15 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		96618 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_3B.py
+[runlim] start:			Wed Mar 25 22:03:18 2020
+[runlim] main pid:		19158
+Choosing inputs [0, 1]
+Academic license - for non-commercial use only
+Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+[runlim] sample:		76.2 seconds, 98.1 MB
+[runlim] sample:		155.8 seconds, 130.3 MB
+[runlim] sample:		235.3 seconds, 130.0 MB
+[runlim] sample:		315.0 seconds, 132.7 MB

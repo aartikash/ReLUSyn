@@ -1,0 +1,23 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		96618 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_5C.py
+[runlim] start:			Sun Mar 29 05:18:03 2020
+[runlim] main pid:		34299
+Choosing inputs [0, 1, 2]
+Academic license - for non-commercial use only
+I0329 05:18:03.544204 34299 attacksynthesis_5.py:57] Academic license - for non-commercial use only
+Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+I0329 05:18:03.544380 34299 attacksynthesis_5.py:57] Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+I0329 05:18:05.429801 34299 attacksynthesis_5.py:144] [-278.628049, 23518.64640552795, 0.0]
+I0329 05:18:05.430297 34299 attacksynthesis_5.py:145] [0.14303488857004992, 0.005689536168574511, 0.00937847408040673, 0.014800048348261522, 0.01744885876749877]
+[runlim] end:			Sun Mar 29 05:18:05 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			2.46 seconds
+[runlim] time:			15.04 seconds
+[runlim] space:			58.9 MB
+[runlim] samples:		21

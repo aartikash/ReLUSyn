@@ -1,0 +1,55 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		96618 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_9C.py
+[runlim] start:			Sun Mar 29 05:56:47 2020
+[runlim] main pid:		35051
+Choosing input [0, 1, 2]
+Academic license - for non-commercial use only
+I0329 05:56:47.731823 35051 attacksynthesis_9.py:57] Academic license - for non-commercial use only
+Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+I0329 05:56:47.731994 35051 attacksynthesis_9.py:57] Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+E0329 05:56:47.733123 35051 attacksynthesis_9.py:72] [0, 1, 2]
+[runlim] sample:		78.2 seconds, 81.4 MB
+[runlim] sample:		157.9 seconds, 86.4 MB
+[runlim] sample:		237.5 seconds, 88.8 MB
+[runlim] sample:		317.2 seconds, 92.8 MB
+[runlim] sample:		396.8 seconds, 97.5 MB
+[runlim] sample:		476.5 seconds, 103.6 MB
+[runlim] sample:		556.1 seconds, 100.1 MB
+[runlim] sample:		635.8 seconds, 103.1 MB
+[runlim] sample:		715.4 seconds, 103.7 MB
+[runlim] sample:		795.1 seconds, 105.3 MB
+[runlim] sample:		874.8 seconds, 109.6 MB
+[runlim] sample:		954.4 seconds, 110.1 MB
+[runlim] sample:		1034.1 seconds, 110.6 MB
+[runlim] sample:		1113.7 seconds, 111.1 MB
+[runlim] sample:		1193.4 seconds, 114.5 MB
+[runlim] sample:		1273.0 seconds, 115.1 MB
+[runlim] sample:		1352.7 seconds, 117.5 MB
+[runlim] sample:		1432.3 seconds, 118.0 MB
+[runlim] sample:		1512.0 seconds, 118.1 MB
+[runlim] sample:		1591.7 seconds, 118.3 MB
+[runlim] sample:		1671.3 seconds, 119.4 MB
+[runlim] sample:		1751.0 seconds, 120.0 MB
+[runlim] sample:		1830.6 seconds, 120.1 MB
+[runlim] sample:		1910.3 seconds, 120.1 MB
+[runlim] sample:		1989.9 seconds, 121.3 MB
+[runlim] sample:		2069.6 seconds, 121.6 MB
+[runlim] sample:		2149.2 seconds, 122.5 MB
+[runlim] sample:		2228.9 seconds, 123.1 MB
+[runlim] sample:		2308.6 seconds, 123.1 MB
+[runlim] sample:		2388.2 seconds, 124.4 MB
+[runlim] sample:		2467.9 seconds, 125.5 MB
+I0329 06:02:01.938595 35051 attacksynthesis_9.py:145] [34376.27088701207, 22853.384838130376, 0.7914761124066935]
+I0329 06:02:01.939018 35051 attacksynthesis_9.py:146] [0.1753807413552881, -0.0024651117791155454, -0.01766014489318561, -0.0024651117791157934, 0.003046989180848318]
+[runlim] end:			Sun Mar 29 06:02:01 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			314.97 seconds
+[runlim] time:			2502.90 seconds
+[runlim] space:			126.6 MB
+[runlim] samples:		3144

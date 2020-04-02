@@ -1,0 +1,24 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		96618 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_7C.py
+[runlim] start:			Sun Mar 29 05:39:47 2020
+[runlim] main pid:		34748
+Choosing input [0, 1, 2]
+Academic license - for non-commercial use only
+I0329 05:39:47.732955 34748 attacksynthesis_7.py:57] Academic license - for non-commercial use only
+Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+I0329 05:39:47.733130 34748 attacksynthesis_7.py:57] Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+E0329 05:39:47.734299 34748 attacksynthesis_7.py:72] [0, 1, 2]
+I0329 05:39:49.676963 34748 attacksynthesis_7.py:145] [-278.628049, 15574.86736594308, 2.5811608022306713]
+I0329 05:39:49.677360 34748 attacksynthesis_7.py:146] [0.17708798121381447, 0.023636759194389005, -0.04735481161365115, -0.0459497974548904, 0.05063748556094518]
+[runlim] end:			Sun Mar 29 05:39:49 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			2.70 seconds
+[runlim] time:			14.57 seconds
+[runlim] space:			62.0 MB
+[runlim] samples:		21

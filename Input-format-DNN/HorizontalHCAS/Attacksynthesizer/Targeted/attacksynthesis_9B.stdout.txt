@@ -1,0 +1,50 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		96618 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_9B.py
+[runlim] start:			Sun Mar 29 05:52:45 2020
+[runlim] main pid:		35020
+Choosing input [0, 1]
+Academic license - for non-commercial use only
+I0329 05:52:45.705551 35020 attacksynthesis_9.py:57] Academic license - for non-commercial use only
+Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+I0329 05:52:45.705724 35020 attacksynthesis_9.py:57] Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+E0329 05:52:45.706930 35020 attacksynthesis_9.py:72] [0, 1]
+[runlim] sample:		78.1 seconds, 77.7 MB
+[runlim] sample:		157.8 seconds, 86.1 MB
+[runlim] sample:		237.4 seconds, 87.2 MB
+[runlim] sample:		317.1 seconds, 88.7 MB
+[runlim] sample:		396.8 seconds, 88.9 MB
+[runlim] sample:		476.4 seconds, 89.7 MB
+[runlim] sample:		556.1 seconds, 90.2 MB
+[runlim] sample:		635.7 seconds, 90.4 MB
+[runlim] sample:		715.4 seconds, 90.5 MB
+[runlim] sample:		795.1 seconds, 90.5 MB
+[runlim] sample:		874.7 seconds, 90.8 MB
+[runlim] sample:		954.4 seconds, 91.3 MB
+[runlim] sample:		1034.1 seconds, 91.5 MB
+E0329 05:55:05.079363 35020 attacksynthesis_9.py:72] [0, 2]
+[runlim] sample:		1112.8 seconds, 81.0 MB
+[runlim] sample:		1192.5 seconds, 91.8 MB
+[runlim] sample:		1272.2 seconds, 94.9 MB
+[runlim] sample:		1351.8 seconds, 96.7 MB
+[runlim] sample:		1431.5 seconds, 97.5 MB
+[runlim] sample:		1511.2 seconds, 97.5 MB
+[runlim] sample:		1590.8 seconds, 98.4 MB
+[runlim] sample:		1670.5 seconds, 98.4 MB
+[runlim] sample:		1750.2 seconds, 98.4 MB
+E0329 05:56:27.244184 35020 attacksynthesis_9.py:72] [1, 2]
+I0329 05:56:29.295799 35020 attacksynthesis_9.py:145] [3919.704054253667, 19774.5412562546, 0.878608449470854]
+I0329 05:56:29.296068 35020 attacksynthesis_9.py:146] [0.14902432876100258, 0.003989920653623659, -0.006715783123253037, 0.004275987901869867, 0.012061542684657988]
+Choosing input [0, 2]
+Choosing input [1, 2]
+[runlim] end:			Sun Mar 29 05:56:29 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			224.32 seconds
+[runlim] time:			1779.32 seconds
+[runlim] space:			98.4 MB
+[runlim] samples:		2238

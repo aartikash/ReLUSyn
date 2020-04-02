@@ -1,0 +1,40 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		96618 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_4B.py
+[runlim] start:			Mon Mar 30 09:55:26 2020
+[runlim] main pid:		39198
+Choosing inputs [0, 1]
+Academic license - for non-commercial use only
+I0330 09:55:27.797705 39198 attacksynthesis_4.py:57] Academic license - for non-commercial use only
+Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+I0330 09:55:27.797930 39198 attacksynthesis_4.py:57] Warning: Gurobi version mismatch between Python 8.1.1 and C library 8.1.0
+[runlim] sample:		18.4 seconds, 65.0 MB
+[runlim] sample:		38.6 seconds, 70.0 MB
+[runlim] sample:		58.6 seconds, 75.9 MB
+[runlim] sample:		78.6 seconds, 78.4 MB
+[runlim] sample:		98.6 seconds, 79.1 MB
+[runlim] sample:		118.6 seconds, 77.9 MB
+[runlim] sample:		138.6 seconds, 83.0 MB
+[runlim] sample:		158.6 seconds, 82.3 MB
+[runlim] sample:		178.6 seconds, 81.9 MB
+I0330 09:57:02.822364 39198 attacksynthesis_4.py:144] [15011.602026257167, 0.0, 2.2683915791388873]
+I0330 09:57:02.823175 39198 attacksynthesis_4.py:145] [-0.237531996929014, -0.1270327236556735, 0.059799414527234196, -0.237531996929014, 0.15183320648063223]
+[runlim] sample:		197.8 seconds, 73.0 MB
+I0330 09:57:12.629253 39198 attacksynthesis_4.py:144] [3919.7040542536624, 0.0, 2.6459579012206933]
+I0330 09:57:12.630224 39198 attacksynthesis_4.py:145] [-1.4037475924887932, -1.181394984379793, -1.069992799774891, -1.4037475924887872, -0.31391755128292514]
+[runlim] sample:		217.1 seconds, 72.1 MB
+I0330 09:57:24.757612 39198 attacksynthesis_4.py:144] [3919.704054253667, 0.0, 2.6459579012206897]
+I0330 09:57:24.757882 39198 attacksynthesis_4.py:145] [-1.4037475924887837, -1.181394984379785, -1.0699927997748837, -1.4037475924887841, -0.31391755128292137]
+Choosing inputs [0, 2]
+Choosing inputs [1, 2]
+[runlim] end:			Mon Mar 30 09:57:24 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			118.82 seconds
+[runlim] time:			232.61 seconds
+[runlim] space:			83.1 MB
+[runlim] samples:		1178
