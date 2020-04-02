@@ -1,0 +1,20 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		32123 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_2G.py
+[runlim] start:			Sun Mar 29 18:53:41 2020
+[runlim] main pid:		42038
+Academic license - for non-commercial use only
+[runlim] sample:		10.3 seconds, 23.7 MB
+[runlim] sample:		20.7 seconds, 25.8 MB
+[runlim] sample:		33.5 seconds, 23.8 MB
+[runlim] end:			Sun Mar 29 18:54:19 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			38.79 seconds
+[runlim] time:			46.60 seconds
+[runlim] space:			27.7 MB
+[runlim] samples:		378

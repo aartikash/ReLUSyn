@@ -1,0 +1,21 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		32123 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_5E.py
+[runlim] start:			Sun Mar 29 19:11:56 2020
+[runlim] main pid:		889
+Academic license - for non-commercial use only
+[runlim] sample:		13.2 seconds, 22.8 MB
+[runlim] sample:		26.8 seconds, 24.9 MB
+[runlim] sample:		41.8 seconds, 24.2 MB
+[runlim] sample:		61.5 seconds, 25.9 MB
+[runlim] end:			Sun Mar 29 19:12:45 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			49.30 seconds
+[runlim] time:			79.40 seconds
+[runlim] space:			27.5 MB
+[runlim] samples:		485

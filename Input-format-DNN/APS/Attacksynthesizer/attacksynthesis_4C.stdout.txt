@@ -1,0 +1,17 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		32123 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_4C.py
+[runlim] start:			Sun Mar 29 18:57:55 2020
+[runlim] main pid:		43978
+Academic license - for non-commercial use only
+[runlim] end:			Sun Mar 29 18:57:56 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			1.14 seconds
+[runlim] time:			0.99 seconds
+[runlim] space:			18.3 MB
+[runlim] samples:		10

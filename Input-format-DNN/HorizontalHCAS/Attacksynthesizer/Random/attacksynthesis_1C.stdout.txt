@@ -1,0 +1,43 @@
+[runlim] version:		1.7
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		32123 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		attacksynthesis_1C.py
+[runlim] start:			Sun Mar 29 18:15:07 2020
+[runlim] main pid:		26628
+Choosing output 0
+Choosing inputs [0, 1, 2]
+Academic license - for non-commercial use only
+[runlim] sample:		71.2 seconds, 76.1 MB
+[runlim] sample:		144.1 seconds, 88.9 MB
+[runlim] sample:		218.8 seconds, 86.6 MB
+[runlim] sample:		293.2 seconds, 90.3 MB
+[runlim] sample:		368.1 seconds, 94.5 MB
+[runlim] sample:		443.2 seconds, 101.6 MB
+[runlim] sample:		518.2 seconds, 100.6 MB
+[runlim] sample:		592.4 seconds, 101.3 MB
+[runlim] sample:		666.4 seconds, 79.2 MB
+[runlim] sample:		740.9 seconds, 84.3 MB
+[runlim] sample:		815.6 seconds, 87.3 MB
+[runlim] sample:		890.3 seconds, 85.8 MB
+[runlim] sample:		964.9 seconds, 87.4 MB
+[runlim] sample:		1038.8 seconds, 94.6 MB
+[runlim] sample:		1111.9 seconds, 59.0 MB
+[runlim] sample:		1186.8 seconds, 75.5 MB
+Choosing output 1
+Choosing inputs [0, 1, 2]
+Choosing output 2
+Choosing inputs [0, 1, 2]
+Choosing output 3
+Choosing inputs [0, 1, 2]
+Choosing output 4
+Choosing inputs [0, 1, 2]
+[runlim] end:			Sun Mar 29 18:17:55 2020
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			168.29 seconds
+[runlim] time:			1244.29 seconds
+[runlim] space:			103.5 MB
+[runlim] samples:		1677
