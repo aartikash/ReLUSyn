@@ -4,7 +4,7 @@ import time
 from gurobipy import *
 
 def find_delta(net_file, in_file, inputs_to_change, out_lb, out_ub):
-    start = time.time()
+    start = time.process_time()
     
     f = open(net_file, "r")
     
@@ -110,14 +110,14 @@ def find_delta(net_file, in_file, inputs_to_change, out_lb, out_ub):
         expr.addConstant(biases[num_layers][i])
         nn.addConstr(outputs[i] == expr)
    
-    nn.setObjectiveN(-outputs[0], 0)
-    nn.setObjectiveN(quicksum(absDeltas), 1)
+    nn.setObjectiveN(-outputs[0], 0, priority=1)
+    nn.setObjectiveN(quicksum(absDeltas), 1, priority=0)
     
     nn.Params.OutputFlag = False
     
-    middle = time.time()
+    middle = time.process_time()
     nn.optimize()
-    end = time.time()
+    end = time.process_time()
     
     if nn.status == GRB.Status.OPTIMAL:
         #print('Output for the given inputs is ' + str(outputs[0].X))

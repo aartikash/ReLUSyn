@@ -4,7 +4,7 @@ import time
 from gurobipy import *
 
 def find_delta(inputs_to_change, min_out, max_deltas):
-    start = time.time()
+    start = time.process_time()
     
     f = open("../../HCAS_rect_v6_pra0_tau00_25HU_3000.nnet", "r")
     
@@ -132,9 +132,9 @@ def find_delta(inputs_to_change, min_out, max_deltas):
     
     nn.Params.OutputFlag = False
     
-    middle = time.time()
+    middle = time.process_time()
     nn.optimize()
-    end = time.time()
+    end = time.process_time()
     
     if nn.status == GRB.Status.OPTIMAL:
         output = []

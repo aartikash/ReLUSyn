@@ -5,7 +5,7 @@ import glog
 from gurobipy import *
 
 def find_delta(inputs_to_change):
-    start = time.time()
+    start = time.process_time()
     
     f = open("../../HCAS_rect_v6_pra0_tau00_25HU_3000.nnet", "r")
     
@@ -136,9 +136,9 @@ def find_delta(inputs_to_change):
     
     nn.Params.OutputFlag = False
     
-    middle = time.time()
+    middle = time.process_time()
     nn.optimize()
-    end = time.time()
+    end = time.process_time()
     
     if nn.status == GRB.Status.OPTIMAL:
         glog.info([inputs[i].X for i in range(inputSize)])

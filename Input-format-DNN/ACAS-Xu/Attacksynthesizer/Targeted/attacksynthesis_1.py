@@ -4,7 +4,7 @@ import time
 from gurobipy import *
 
 def find_delta(inputs_to_change, max_deltas):
-    start = time.time()
+    start = time.process_time()
     
     f = open("../../nnet/ACASXU_run2a_1_1_batch_2000.nnet", "r")
     
@@ -133,9 +133,9 @@ def find_delta(inputs_to_change, max_deltas):
     
     nn.Params.OutputFlag = False
     
-    middle = time.time()
+    middle = time.process_time()
     nn.optimize()
-    end = time.time()
+    end = time.process_time()
     
     if nn.status == GRB.Status.OPTIMAL:
         output = []
