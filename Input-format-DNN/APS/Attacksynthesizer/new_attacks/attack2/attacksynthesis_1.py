@@ -114,7 +114,7 @@ def find_delta(net_file, in_file, inputs_to_change, out_file, out_ub):
     output_val = 0
     with open(out_file, 'r') as temp:
         output_val = float(temp.readline())
-        nn.addConstr(outputs[0] >= output_val + 0.01)
+        nn.addConstr(outputs[0] >= output_val + 10)
 
     nn.setObjectiveN(-outputs[0], 0, priority=1)
     nn.setObjectiveN(quicksum(absDeltas), 1, priority=0)

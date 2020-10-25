@@ -59,7 +59,7 @@ def find_delta(net_file, in_file, inputs_to_change, out_file, out_ub):
     nn = Model()
     
     inputs = nn.addVars(num_inputs)
-    deltas = nn.addVars(num_inputs, ub=5)
+    deltas = nn.addVars(num_inputs, ub=20)
     absDeltas = nn.addVars(num_inputs)
     
     f = open(in_file, 'r')
@@ -67,7 +67,7 @@ def find_delta(net_file, in_file, inputs_to_change, out_file, out_ub):
     for i in range(num_inputs):
         input_val = float(f.readline())
         nn.addConstr(inputs[i] == input_val)
-        deltas.lb = max(-input_val, -5)
+        deltas.lb = max(-input_val, -20)
         nn.addConstr(absDeltas[i] == abs_(deltas[i]))
         if i not in inputs_to_change:
             nn.addConstr(deltas[i] == 0)
@@ -114,7 +114,7 @@ def find_delta(net_file, in_file, inputs_to_change, out_file, out_ub):
     output_val = 0
     with open(out_file, 'r') as temp:
         output_val = float(temp.readline())
-        nn.addConstr(outputs[0] >= output_val + 0.01)
+        nn.addConstr(outputs[0] >= output_val + 10)
 
     nn.setObjectiveN(-outputs[0], 0, priority=1)
     nn.setObjectiveN(quicksum(absDeltas), 1, priority=0)
