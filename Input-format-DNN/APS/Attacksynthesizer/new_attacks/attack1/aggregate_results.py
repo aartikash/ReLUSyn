@@ -14,8 +14,8 @@ with open('aggregate_results_1A.csv', 'w') as out_f:
                 line_one = results_f.readline().split(',')
                 if 'Y' in line_one:
                     successful_attacks += 1
-                    successful_inputs.append([line_one[0]])
-                    successful_input_deviations.append([line_one[1]])
-                    output_deviations.append(line_one[2])
+                    successful_inputs.append([int(line_one[0])])
+                    successful_input_deviations.append([float(line_one[1])])
+                    output_deviations.append(float(line_one[2]))
                     times.append(float(line_one[-1][:-1]))
             out_f.write('input {}: successful attacks = {}, inputs = {}, input deviations = {}, output change = {}, times = {}, max_time = {}\n'.format(i, successful_attacks, successful_inputs, successful_input_deviations, output_deviations, times, max(times) if len(times) > 0 else 0))
