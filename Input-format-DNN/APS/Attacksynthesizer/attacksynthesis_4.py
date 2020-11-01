@@ -59,13 +59,15 @@ def find_delta(net_file, in_file, inputs_to_change, out_lb, out_ub):
     nn = Model()
     
     inputs = nn.addVars(num_inputs, lb=-GRB.INFINITY)
-    deltas = nn.addVars(num_inputs, lb=-5, ub=5)
+    deltas = nn.addVars(num_inputs, ub=5)
     absDeltas = nn.addVars(num_inputs)
     
     f = open(in_file, 'r')
     
     for i in range(num_inputs):
-        nn.addConstr(inputs[i] == float(f.readline()))
+        in_val = float(f.readline())
+        nn.addConstr(inputs[i] == in_val)
+        deltas[i].lb = max(-in_val, -5)
         nn.addConstr(absDeltas[i] == abs_(deltas[i]))
         if i not in inputs_to_change:
             nn.addConstr(deltas[i] == 0)
@@ -110,8 +112,8 @@ def find_delta(net_file, in_file, inputs_to_change, out_lb, out_ub):
         expr.addConstant(biases[num_layers][i])
         nn.addConstr(outputs[i] == expr)
    
-    nn.setObjectiveN(-outputs[0], 0)
-    nn.setObjectiveN(quicksum(absDeltas), 1)
+    nn.setObjectiveN(-outputs[0], 0, priority=1)
+    nn.setObjectiveN(quicksum(absDeltas), 1, priority=0)
     
     nn.Params.OutputFlag = False
     
